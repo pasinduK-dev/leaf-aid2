@@ -7,6 +7,10 @@ from fastapi.responses import JSONResponse
 from PIL import Image
 import io
 
+from pydantic import BaseModel
+import tensorflow as tf
+import numpy as np
+
 app = FastAPI()
 
 @app.get('/')
@@ -36,9 +40,10 @@ async def predict(file: UploadFile = File(...)):
         with open('HealthyOrDiseaseModel.pkl', 'rb') as file:
             model1 = pickle.load(file)
 
-        with open('disease_model.pkl', 'rb') as file:
-            model2 = pickle.load(file)
-        print("29 succefully")
+        #with open('disease_model.pkl', 'rb') as file:
+        #   model2 = pickle.load(file)
+        #print("29 succefully")
+        model2 = tf.keras.models.load_model("densenet121_model.keras")
         model_input = np.expand_dims(image_array, axis=0)
         print("Model Loaded succefully")
         # Perform prediction
