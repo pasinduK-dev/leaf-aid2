@@ -44,8 +44,8 @@ async def predict(file: UploadFile = File(...)):
           model2 = pickle.load(file)
         print("29 succefully")
         #model2 = tf.keras.models.load_model("densenet121_model.keras")
-        #model_input = np.expand_dims(image_array, axis=0)
-        #print("Model Loaded succefully")
+        model_input = np.expand_dims(image_array, axis=0)
+        print("Model Loaded succefully")
         # Perform prediction
         prediction1 = model1.predict(model_input)
         print(prediction1[0][0])
