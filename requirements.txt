@@ -6,3 +6,4 @@ fastapi>=0.112.1
 scikit-learn>=1.4.2
 pillow>=11.0.0
 python-multipart>=0.0.19
+keras>=3.7.0
