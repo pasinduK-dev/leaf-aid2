@@ -11,7 +11,7 @@ app = FastAPI()
 
 @app.get('/')
 def index():
-    return {'message': 'Cancer Prediction ML API'}
+    return {'message': 'Chilli Leaf Prediction ML API'}
 
 
 @app.post("/predict")
